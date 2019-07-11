@@ -4,16 +4,21 @@ defmodule CQEx.Mixfile do
   @version "0.3.0"
 
   def project do
-    [app: :cqex,
-     version: @version,
-     elixir: "~> 1.0",
-     description: description(),
-     package: package(),
-     source_url: "https://github.com/matehat/cqex",
-     deps: deps(),
-     docs: [extras: ["README.md"], main: "README",
-            source_ref: "v#{@version}",
-            source_url: "https://github.com/matehat/cqex"]]
+    [
+      app: :cqex,
+      version: @version,
+      elixir: "~> 1.7",
+      description: description(),
+      package: package(),
+      source_url: "https://github.com/matehat/cqex",
+      deps: deps(),
+      docs: [
+        extras: ["README.md"],
+        main: "README",
+        source_ref: "v#{@version}",
+        source_url: "https://github.com/matehat/cqex"
+      ]
+    ]
   end
 
   def application do
@@ -21,7 +26,7 @@ defmodule CQEx.Mixfile do
   end
 
   defp deps do
-    [{ :cqerl, "~> 1.1.1" }]
+    [{:cqerl, "~> 1.1.1"}]
   end
 
   defp description do
@@ -31,9 +36,11 @@ defmodule CQEx.Mixfile do
   end
 
   defp package do
-    [files: ["lib", "mix.exs", "README.md", "LICENSE"],
-     maintainers: ["Mathieu D'Amours"],
-     licenses: ["MIT"],
-     links: %{"GitHub" => "https://github.com/matehat/cqex"}]
+    [
+      files: ["lib", "mix.exs", "README.md", "LICENSE"],
+      maintainers: ["Mathieu D'Amours"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => "https://github.com/matehat/cqex"}
+    ]
   end
 end

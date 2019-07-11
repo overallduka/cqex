@@ -1,11 +1,10 @@
 defmodule CQExTest do
-
   alias CQEx.Query, as: Q
   use ExUnit.Case
   doctest CQEx, async: false, seed: 0
 
   setup_all do
-    client = CQEx.Client.new!
+    client = CQEx.Client.new!()
     [client: client]
   end
 
@@ -19,12 +18,12 @@ defmodule CQExTest do
                 test_text text, test_date date, test_smallint smallint, test_time time,
                 test_list list<text>, test_set set<text>, test_map map<text, text>, 
                 PRIMARY KEY( (test_text), test_uuid ) )")
-    :timer.sleep 800
+
+    :timer.sleep(800)
   end
 
   test "Drop table", %{client: client} do
     client
-    |> Q.call!("DROP TABLE test_table")
+    |> Q.call!("DROP TABLE IF EXISTS test_table")
   end
-
 end

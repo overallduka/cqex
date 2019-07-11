@@ -1,5 +1,6 @@
 use Mix.Config
 
-config :cqerl, 
-  cassandra_nodes: [{"127.0.0.1", 9042}],
+config :cqerl,
+  mode: :hash,
+  cassandra_nodes: [{"localhost", 9042}],
   keyspace: "cqex_test"
